@@ -1,0 +1,126 @@
+/* Smart Pantry - Application Stylesheet */
+
+.root {
+    -fx-font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #f5f6fa;
+}
+
+/* Navigation button hover effect */
+.nav-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Active navigation button */
+.nav-button-active {
+    -fx-background-color: #3498db !important;
+    -fx-text-fill: white !important;
+}
+
+/* Table row highlighting for expiration */
+.expired-row {
+    -fx-background-color: rgba(231, 76, 60, 0.15) !important;
+}
+
+.expired-row:hover {
+    -fx-background-color: rgba(231, 76, 60, 0.25) !important;
+}
+
+.expiring-soon-row {
+    -fx-background-color: rgba(243, 156, 18, 0.15) !important;
+}
+
+.expiring-soon-row:hover {
+    -fx-background-color: rgba(243, 156, 18, 0.25) !important;
+}
+
+/* Recipe cards */
+.recipe-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);
+    -fx-border-color: #dcdde1;
+    -fx-border-radius: 12;
+}
+
+.recipe-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);
+    -fx-border-color: #3498db;
+}
+
+/* Match percentage indicators */
+.match-perfect {
+    -fx-background-color: rgba(39, 174, 96, 0.2);
+    -fx-text-fill: #27ae60;
+    -fx-padding: 5 10;
+    -fx-background-radius: 15;
+}
+
+.match-good {
+    -fx-background-color: rgba(52, 152, 219, 0.2);
+    -fx-text-fill: #3498db;
+    -fx-padding: 5 10;
+    -fx-background-radius: 15;
+}
+
+.match-partial {
+    -fx-background-color: rgba(243, 156, 18, 0.2);
+    -fx-text-fill: #f39c12;
+    -fx-padding: 5 10;
+    -fx-background-radius: 15;
+}
+
+/* Scroll pane */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Button styles */
+.btn-primary {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #2980b9;
+}
+
+.btn-secondary {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.btn-danger {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #c0392b;
+}
+
+.btn-small {
+    -fx-padding: 6 12;
+    -fx-font-size: 12px;
+}

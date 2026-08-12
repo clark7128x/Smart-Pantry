@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartpantry.controllers.RecipeController"
+      spacing="20"
+      fx:id="mainContainer"
+      style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20;">
+
+    <!-- Header Section -->
+    <VBox spacing="5">
+        <Label fx:id="lblTitle" text="📖 Recipe Book"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label fx:id="lblSubtitle" text="Manage your favorite recipes"
+               style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+    </VBox>
+
+    <Separator/>
+
+    <!-- Add Recipe Form (visible in MANAGE mode) -->
+    <VBox fx:id="addRecipeSection" spacing="15">
+        <TitledPane text="➕ Add New Recipe" collapsible="true" expanded="false">
+            <VBox spacing="15" style="-fx-padding: 15;">
+
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="Recipe Name:" prefWidth="120"/>
+                    <TextField fx:id="txtRecipeName" promptText="Enter recipe name"
+                               HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="Ingredients:" prefWidth="120"/>
+                    <TextField fx:id="txtIngredients"
+                               promptText="Comma-separated (e.g., eggs, milk, flour)"
+                               HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <HBox spacing="15" alignment="TOP_LEFT">
+                    <Label text="Instructions:" prefWidth="120"/>
+                    <TextArea fx:id="txtInstructions"
+                              promptText="Enter cooking instructions..."
+                              prefRowCount="4" wrapText="true"
+                              HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Add Recipe" onAction="#handleAddRecipe"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-padding: 10 20;
+                                   -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Clear" onAction="#clearRecipeForm"
+                            style="-fx-background-color: #95a5a6; -fx-text-fill: white;
+                                   -fx-font-weight: bold; -fx-padding: 10 20;
+                                   -fx-background-radius: 6; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+        </TitledPane>
+    </VBox>
+
+    <!-- Filter Section (visible in SUGGESTIONS mode) -->
+    <HBox fx:id="filterContainer" spacing="20" alignment="CENTER_LEFT"
+          visible="false" managed="false">
+        <Label text="Minimum Match:"/>
+        <Slider fx:id="sliderMatchPercentage" min="0" max="100" value="50"
+                showTickLabels="true" showTickMarks="true"
+                majorTickUnit="25" prefWidth="200"/>
+        <Label fx:id="lblMatchPercentage" text="50%"
+               style="-fx-font-weight: bold; -fx-text-fill: #3498db; -fx-font-size: 16px;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Search Bar -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <TextField fx:id="txtSearch" promptText="🔍 Search recipes..."
+                   prefWidth="300"
+                   style="-fx-background-color: white; -fx-border-color: #dcdde1;
+                          -fx-border-radius: 20; -fx-background-radius: 20;
+                          -fx-padding: 10 20;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Recipe Cards Container -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+        <FlowPane fx:id="recipeCardsContainer" hgap="20" vgap="20"
+                  style="-fx-padding: 10;">
+        </FlowPane>
+    </ScrollPane>
+
+</VBox>
